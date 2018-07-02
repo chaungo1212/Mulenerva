@@ -1,0 +1,76 @@
+<!-- This file was created by Patrick Shane McClintock in April 2018 for the Mulenerva Project. -->
+
+<div class="instructions" style="text-align: center; height: 12px; margin-top: 10px; margin-bottom: 5px;">
+  <br />
+  Click On A Button To See More Information!
+</div>
+
+<div class="content" *ngIf="results">
+  <div class="no-content" *ngIf="results.length===0">
+    No Content To Display.  Please Try A Different Query!
+  </div>
+
+  <div class="large-result-button" *ngIf="expanded">
+
+    <div class="large-nondescriptions">
+      <span>
+        <img src={{getImage(e_result)}}>
+        <span class="large-tags" *ngIf="e_result.tags !== null">
+          <span *ngFor="let tag of e_result.tags" style="font-size: 14px;">
+            <span *ngIf="tag !== e_result.tags[e_result.tags.length-1]">
+              {{tag | titlecase}},
+            </span>
+            <span *ngIf="tag === e_result.tags[e_result.tags.length-1]">
+              {{tag | titlecase}}
+            </span>
+          </span>
+        </span>
+      </span>
+      <a href="{{view()}}" id="view" *ngIf="e_result.is_available">View Content</a>
+      <div class="large-subbutton" id="request" *ngIf="!e_result.is_available && !e_result.is_requested" (click)="request()">Request Content</div>
+      <div class="large-subbutton-toggled" id="requested" *ngIf="!e_result.is_available && e_result.is_requested">Content Requested</div>
+
+      <div class="large-subbutton2" id="prev" *ngIf="e_result.previous_key !== null && e_result.previous_key.length !== 0 " (click)="get_result('prev')"> &larr; Prev</div>
+      <div class="large-subbutton2-toggled" id="no_prev" *ngIf="e_result.previous_key !== null || e_result.previous_key.length === 0">No Prev </div>
+      <div class="large-subbutton2" id="next" *ngIf="e_result.next_key !== null && e_result.next_key.length !== 0" (click)="get_result('next')">Next &rarr;</div>
+      <div class="large-subbutton2-toggled" id="no_next" *ngIf="e_result.next_key !== null || e_result.next_key.length === 0">No Next </div>
+    </div>
+
+    <div class="cancel-button" (click)="unexpand()"></div>
+
+    <div class="large-descriptions">
+      <div class="title" style="font-size: 24px; text-align: center;"> {{e_result.title | titlecase}} </div>
+      <div class="author" style="font-size: 14px; margin-bottom: 12px; text-align: center;"> By {{e_result.author | titlecase}} </div>
+      <hr />
+      <div class="short-desc" style="font-size: 16px;"> <span class="tab"></span>{{e_result.long_desc}} </div>
+    </div>
+
+  </div>
+
+  <div *ngFor="let result of results">
+    <div class="short-result-button" *ngIf="!expanded" (click)="expansion(result)">
+      <div class="short-nondescriptions">
+        <img src={{getImage(result)}}>
+        <br />
+        <span *ngIf="result.tags !== null">
+          <span *ngFor="let tag of result.tags" style="font-size: 12px;">
+            <span *ngIf="tag !== result.tags[result.tags.length-1]">
+              {{tag | titlecase}},
+            </span>
+            <span *ngIf="tag === result.tags[result.tags.length-1]">
+              {{tag | titlecase}}
+            </span>
+          </span>
+        </span>
+      </div>
+
+      <!-- <div class="vertline"></div> -->
+
+      <div class="short-description">
+        <div class="title" style="font-size: 16px;"> {{result.title | titlecase}} </div>
+        <div class="author" style="font-size: 12px; margin-bottom: 4px;"> By {{result.author | titlecase}} </div>
+        <div class="short-desc" style="font-size: 14px;"> {{result.short_desc}} </div>
+      </div>
+    </div>
+  </div>
+</div>

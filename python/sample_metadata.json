@@ -1,0 +1,11 @@
+{
+    "type": "document",
+    "title": "Replace",
+    "author": "OpenStax / Rice University",
+    "genre": "Textbooks",
+    "short_desc": "OpenStax Textbook - ",
+    "long_desc": "A free (Creative Commons) textbook provided by Rice University in Houston, TX.",
+    "tags": ["openstax", "textbook"],
+    "size": 1,
+    "length": 123
+}

@@ -1,0 +1,80 @@
+/* This file was created by Patrick Shane McClintock in March 2018 for the Mulenerva Project. */
+
+.form-group {
+  margin-left: 10%;
+  width: 80%;
+  height: 32px;
+  padding: 24px 8% 24px 8%;
+}
+
+.subject-area {
+  padding: 12px 1% 12px 1%;
+}
+.subject-dropdown {
+  width: 15%;
+  height: 18px;
+  min-width: 64px;
+}
+
+.search-area {
+  padding: 12px 1% 12px 1%;
+}
+.searchbar{
+  width: 50%;
+  height: 18px;
+  min-width: 250px;
+}
+
+.logic-area {
+  padding: 12px 0% 12px 1%;
+}
+.logic-dropdown {
+  width: 5%;
+  height: 18px;
+  min-width: 48px;
+}
+
+.filter-bar {
+  width: 90vw;
+  height: 44px;
+  margin-left: 8.5vw;
+  margin-right: 8.5vw;
+}
+
+.button {
+  float: left;
+  height: 24px;
+  width: 20%;
+  min-width: 150px;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-background.png");
+  background-repeat: repeat-x;
+  color: #ececec;
+  border: 1px groove black;
+  cursor: pointer;
+  box-shadow: 2px 6px 6px grey;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+}
+.button:hover{
+  background-image: url("../../assets/button-hover-background.png");
+  color: white;
+}
+
+.selected {
+  float: left;
+  height: 24px;
+  width: 20%;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-toggled-background.png");
+  background-repeat: repeat-x;
+  color: lightgrey;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+  .selected:hover {
+    background-image: url("../../assets/button-toggled-hover-background.png");
+    color: ghostwhite;
+  }

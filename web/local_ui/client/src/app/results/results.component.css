@@ -1,0 +1,225 @@
+/* This file was created by Patrick Shane McClintock in April 2018 for the Mulenerva Project. */
+
+.instructions{
+  color: #38c638;
+  text-shadow: 1px 1px black;
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 28px;
+}
+
+.content {
+  width: 86vw;
+  max-height: 276px;
+  margin-left: 7vw;
+  margin-right: 7vw;
+  margin-top: 5vh;
+  overflow-y: auto;
+  height: 40vh;
+  background-color: #38c638;
+  padding-top: 12px;
+  box-shadow: 2px 6px 6px grey;
+  border-radius: 10px;
+  border: groove 1px black;
+}
+
+.no-content {
+  text-align: center;
+  height: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  box-shadow: 2px 6px 6px #389638;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  height: 24px;
+  width: 84.5%;
+  min-width: 100px;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-background.png");
+  background-repeat: repeat-x;
+  color: #fefefe;
+  border: 1px groove black;
+  cursor: pointer;
+  box-shadow: 2px 6px 6px grey;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+}
+
+.large-result-button {
+  width: 95%;
+  margin-left: 2.083%;
+  margin-right: 2.083%;
+  height: 94.5%;
+  border-radius: 6px;
+  display: table;
+  float: left;
+  background-color: #ececec;
+  box-shadow: 2px 6px 6px #389638;
+  margin-bottom: 1vw;
+  overflow: hidden;
+}
+
+.large-nondescriptions {
+  float: left;
+  width: 25%;
+  height: 90%;
+  margin: 1.25% 0% 1.25% 1.25%;
+  /* border:groove 1px black; */
+}
+
+.large-tags {
+  font-size: 14px;
+  float: right;
+  width: 50%;
+  margin-right: 15.5%;
+  margin-left: 1.25%;
+  height: 80px;
+  text-align: left;
+}
+
+.large-descriptions {
+  float: right;
+  width: 70%;
+  height: 90%;
+  margin: 1.25% 0% 1.25% 1.25%;
+  /*border:groove 1px black;*/
+}
+
+.large-subbutton {
+  text-align: center;
+  height: 24px;
+  width: 84.5%;
+  min-width: 100px;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-background.png");
+  background-repeat: repeat-x;
+  color: #fefefe;
+  border: 1px groove black;
+  cursor: pointer;
+  box-shadow: 2px 6px 6px grey;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+}
+.large-subbutton:hover {
+  background-image: url("../../assets/button-hover-background.png")
+}
+
+.large-subbutton-toggled {
+  text-align: center;
+  height: 24px;
+  width: 85%;
+  min-width: 100px;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-toggled-background.png");
+  background-repeat: repeat-x;
+  color: lightgrey;
+  border: 1px groove black;
+  box-shadow: 2px 6px 6px grey;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+}
+
+.large-subbutton2 {
+  text-align: center;
+  height: 24px;
+  width: 40%;
+  min-width: 80px;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-background.png");
+  background-repeat: repeat-x;
+  color: #fefefe;
+  border: 1px groove black;
+  cursor: pointer;
+  box-shadow: 2px 6px 6px grey;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 8px;
+  border-radius: 6px;
+}
+.large-subbutton2:hover {
+  background-image: url("../../assets/button-hover-background.png")
+}
+
+.large-subbutton2-toggled {
+  float: left;
+  text-align: center;
+  height: 24px;
+  width: 40%;
+  min-width: 80px;
+  padding: 12px 1.25% 8px 1.25%;
+  background-image: url("../../assets/button-toggled-background.png");
+  background-repeat: repeat-x;
+  color: lightgrey;
+  border: 1px groove black;
+  box-shadow: 2px 6px 6px grey;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 8px;
+  border-radius: 6px;
+}
+
+.cancel-button {
+  float: right;
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  margin-top: 8px;
+  background-image: url("../../assets/cancel.png");
+  cursor: pointer;
+}
+
+.short-result-button {
+  width: 27.5%;
+  min-width: 225px;
+  margin-left: 2.083%;
+  margin-right: 2.083%;
+  height: 22.5vh;
+  min-height: 135px;
+  max-height: 22.5vh;
+  border-radius: 6px;
+  display: table;
+  cursor: pointer;
+  float: left;
+  background-color: #ececec;
+  box-shadow: 2px 6px 6px #389638;
+  margin-bottom: 1vw;
+  overflow: hidden;
+}
+.short-result-button:hover{
+  background-color: lightyellow;
+}
+
+.short-nondescriptions{
+  float: left;
+  width: 32.5%;
+  height: 90%;
+  max-height: 90%;
+  margin: 2.5% 0% 2.5% 2.5%;
+}
+
+.short-description {
+  float: right;
+  width: 57.5%;
+  height: 95%;
+  margin: 2.5% 2.5% 2.5% 0;
+}
+
+.vertline {
+  width: 0px;
+  height: 90%;
+  outline: dashed 1px black;
+  margin: 2.5% 2.5% 2.5% 2.5%;
+  float: left;
+}

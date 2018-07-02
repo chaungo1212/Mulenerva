@@ -1,0 +1,383 @@
+<!--
+    This code is written based on Patrick McClintock's code
+-->
+<div class="function">
+    <div class="selectmaterial">
+        Please select the material
+        <select id="Material-Dropdown" class="Material-Dropdown">
+            <option value="">Select Material</option>
+            <option value="Document">Document</option>
+            <option value="Video">Video</option>
+        </select>
+    </div>
+    <div class="navbar" align="center">
+        <button class="tablink Add" (click)="add()">Add</button>
+        <button class="tablink View" (click)="viewDoc()">View</button>
+        <button class="tablink Modify" (click)="modify()">Modify</button>
+        <button class="tablink Delete" (click)="delete()">Delete</button>
+    </div>
+    <br />
+    <!--Show screen of each button-->
+    <div class="content1">
+        <div *ngIf="screen_to_show===1">
+            <div class="box1">
+                <br>
+                <p class="uppercase">
+                    Add New Document <br>
+                </p>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="subject-dropdown" class="subject-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Subject</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    Name of the Document
+
+                    <input class="addbookbar" id="bookbar" type="text" name="bookbar" placeholder={{placeholder}} value="{{title}}" (change)="updatetitle()">
+                    <br>
+
+                    Author of the Document
+                    <input class="addauthor" id="authorbar" type="text" name="authorbar" placeholder={{placeholder1}} value="{{author}}" (change)="updateauthor()">
+                    <br>
+                    Long Description of the Document
+                    <input class="longdesDoc" id="longdesDoc" type="text" name="LDescriptionbar" placeholder={{placeholder2}} value="{{long_desc}}" (change)="updateLongDesc()">
+                    <br />
+                    Short Description of the Document
+                    <input class="shortdesDoc" id="shortdesDoc" type="text" name="SDescriptionbar" placeholder={{placeholder3}} value="{{short_desc}}" (change)="updateShortDesc()">
+                    <br />
+                    Size of the Document:
+                    <input class="size" type="text" placeholder="Size">
+                    <br />
+                    Type of the Document:
+                    <input class="typedoc" type="text" placeholder="Type">
+                    <br />
+
+                    Content key of the Document:
+                    <input class="contentkey" type="text" placeholder="Content Key">
+                    <br />
+                    Thumbnail key of the Document:
+                    <input class="thumbnailkey" type="text" placeholder="Thumbnail Key">
+                </form>
+                <!--<button class="addbookbutton" id="addbookbutton" (click)="addbook()" type="file" value="{{Submit}}" (change)="uploadFile($event)">Add Document</button>-->
+                <button class="addbookbutton" id="addbookbutton" (click)="addbook()" type="file" value="{{Submit}}">Add Document</button>
+            </div>
+        </div>
+        <div *ngIf="screen_to_show===21">
+            <p> Document has been added.</p>
+        </div>
+        <!--Add Video-->
+        <div *ngIf="screen_to_show===2">
+            <div class="box1">
+                <br>
+                <p class="uppercase">
+                    Add new video <br>
+                </p>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="video-category" class="addVid-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    Name of the Video
+                    <input class="addvidbar" id="vidbar" type="text" name="vidbar" placeholder={{placeholder4}} value="{{Videoname}}">
+                    <br>
+                    Video Publisher <input type="text" name="VideoPublisher" placeholder={{placeholder5}} value="{{query}}" (change)="getQuery()">
+                    <br>
+                    Short Description of the Video
+                    <input class="des-vid" id="des-vid" type="text" name="Descriptionvidbar" placeholder={{placeholder7}} value="{{query}}" (change)="updateQuery()">
+                    <br />
+                    Long Description of the Video
+                    <input class="des-vid" id="des-vid" type="text" name="Descriptionvidbar" placeholder={{placeholder15}} value="{{query}}" (change)="updateQuery()">
+
+                    Size of the Video:
+                    <input class="size" type="text" placeholder="Size">
+                    <br />
+                    Type of the Video:
+                    <input class="typedoc" type="text" placeholder="Type">
+                    <br />
+                    Content key of the Video:
+                    <input class="contentkey" type="text" placeholder="Content Key">
+                    <br />
+                    Thumbnail key of the Video:
+                    <input class="thumbnailkey" type="text" placeholder="Thumbnail Key">
+                    <br>
+                </form>
+                <button class="addvidbutton" id="addvidbutton" (click)="addvid()" type="submit" value="{{Submit}}">Add Video</button>
+            </div>
+        </div>
+        <div *ngIf="screen_to_show===22">
+            <p> Video has been added.</p>
+        </div>
+        <!--View Document-->
+        <div *ngIf="screen_to_show===5">
+            <div class="box1">
+                <br />
+                <p class="uppercase">
+                    View all of Documents <br>
+                </p>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="view-bookCat" class="viewBookCat-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                        <br>
+                        <div class="instructions">
+                            <div class="short-result-button">
+                                <div class="title" *ngIf="results.length !== 0">
+                                    Select Document you want to View
+                                    <select id="title" class="title-delete">
+                                        <option *ngFor="let result of results" value={{result.title}} (click)="updateResults(result)"> {{result.title}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+
+                </form>
+                <button class="viewbookbutton" id="viewbookbutton" (click)="viewbook()" value="{{Submit}}" type="submit">View Document</button>
+
+            </div>
+        </div>
+        <div *ngIf="screen_to_show===25">
+            <div class="content11" *ngIf="results">
+                <div *ngFor="let result of results">
+                    <div class="instructions">
+                        <div class="short-result-button">
+                            <div class="short-nondescriptions">
+                                <img src={{imgurl}}>
+                                <br />
+                            </div>
+                            <span class="short-description">
+                                <div class="title">
+                                    Name of the Document:
+                                    {{result.title}}
+                                    <br />
+                                    Tag of the Document:
+                                    <span *ngFor="let tag of result.tags">
+                                        <span *ngIf="tag !== result.tags[result.tags.length-1]">
+                                            {{tag | titlecase}}
+                                        </span>
+                                        <span *ngIf="tag === result.tags[result.tags.length-1]">
+                                            {{tag | titlecase}}
+                                        </span>
+                                    </span>
+                                    <br />
+                                    Author of the Document:
+                                    {{result.author| titlecase}}
+                                    <br />
+                                    Size of the Document:
+                                    {{result.size}}
+                                    <br />
+                                    Type of the Document:
+                                    {{result.type}}
+                                    <br />
+                                    Short Description of the Document:
+                                    {{result.short_desc}}
+                                    <br />
+                                    Long Description of the Document:
+                                    {{result.long_desc}}
+                                    <br />
+                                    Content key of the Document:
+                                    {{result.content_key}}
+                                    <br />
+                                    Thumbnail key of the Document:
+                                    {{result.thumbnail_key}}
+                                    <br />
+                                    <br />
+                                    <br />
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--View Video-->
+        <div *ngIf="screen_to_show===6">
+            <div class="box1">
+                <p class="uppercase">
+                    View all of the videos <br>
+                </p>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="view-vidCat" class="viewVidCat-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    Total videos in this category:
+                    <br>
+                    Select Video
+                    <span class="select-videoView">
+                        <select id="view-video" class="viewBook-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Video</option>
+                        </select>
+                    </span>
+                    <br>
+                    <button class="viewvidbutton" (click)="view()" type="submit" form="nameform" value="{{Submit}}">View video</button>
+                </form>
+            </div>
+        </div>
+        <!--Modify Document-->
+        <div *ngIf="screen_to_show===9">
+            <div class="box1">
+                <p class="uppercase">
+                    Choose a Document to edit
+                </p>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="modify-subject" class="viewVidCat-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    <div class="instructions">
+                        <div class="short-result-button">
+                            <div class="title" *ngIf="results.length !== 0">
+                                Select Document you want to edit
+                                <select id="title" class="title-delete" (change)="updateID()">
+                                    <option *ngFor="let result of results" value={{result.title}}> {{result.title}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <button class="modifybookbutton" id="modifybookbutton" (click)="modifyDoc1()" type="submit" form="nameform" value="{{Submit}}">Modify this Document</button>
+            </div>
+        </div>
+        <div *ngIf="screen_to_show===29">
+            <div class="content11" *ngIf="results">
+                <div class="large-result-button" *ngIf="open">
+                </div>
+                Edit Name of the Document:
+                <input class="namedoc" id="namedoc" type="text" name="namebar" placeholder={{placeholder9}}>
+                <br />
+                Edit Author of the Document:
+                <input class="authordoc" id="authordoc" type="text" name="bookbar" placeholder={{placeholder8}}>
+                <br />
+                Edit Short Description of the Document:
+
+                <input class="short_desc" id="short_desc" type="text" name="shortdescbar" placeholder={{placeholder10}}>
+                <br />
+                Edit Long Description of the Document:
+                <input class="long_desc" id="long_desc" type="text" name="longdescbar" placeholder={{placeholder11}}>
+                <br />
+                <button class="modifybookbutton" id="modifybookbutton" (click)="modifyDoc()" type="submit" form="nameform" value="{{Submit}}">Modify this Document</button>
+            </div>
+        </div>
+        <!--Modify Video-->
+        <div *ngIf="screen_to_show===10">
+            <div class="box1">
+                <p class="uppercase">
+                    Choose a Video to edit
+                </p>
+                <br>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="modify-subject" class="viewVidCat-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    <div class="instructions">
+                        <div class="short-result-button">
+                            <div class="title" *ngIf="results.length !== 0">
+                                Select Video you want to edit
+                                <select id="title" class="title-delete" (change)="updateID()">
+                                    <option *ngFor="let result of results" value={{result.title}}> {{result.title}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button class="modifyvidbutton" id="modifyvidbutton" (click)="modifyvid()" type="submit" form="nameform" value="{{Submit}}">Modify this Video</button>
+            </div>
+        </div>
+        <div *ngIf="screen_to_show===27">
+            <div class="content11" *ngIf="results">
+                <div class="large-result-button" *ngIf="open">
+                </div>
+                Edit Name of the Video:
+                <input class="namedoc" id="namedoc" type="text" name="namebar" placeholder={{placeholder9}}>
+                <br />
+                Edit Author of the Video:
+                <input class="authordoc" id="authordoc" type="text" name="bookbar" placeholder={{placeholder8}}>
+                <br />
+                Edit Short Description of the Video:
+
+                <input class="short_desc" id="short_desc" type="text" name="shortdescbar" placeholder={{placeholder10}}>
+                <br />
+                Edit Long Description of the Video:
+                <input class="long_desc" id="long_desc" type="text" name="longdescbar" placeholder={{placeholder11}}>
+                <br />
+                <button class="modifybookbutton" id="modifybookbutton" (click)="modifyDoc()" type="submit" form="nameform" value="{{Submit}}">Modify this Video</button>
+            </div>
+        </div>
+        <!--Delete Document-->
+        <div *ngIf="screen_to_show===13">
+            <div class="box1">
+                <p class="uppercase">Choose a document to delete</p>
+                <br>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="modify-subject" class="viewVidCat-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    <div class="title" *ngIf="results.length !== 0">
+                        Select Document you want to Delete
+                        <select id="title" class="title-delete" (change)="updateID()">
+                            <option *ngFor="let result of results" value={{result._id.$oid}}> {{result.title}}</option>
+                        </select>
+                    </div>
+                </form>
+                <button class="deletebutton" id="deletebutton" (click)="deleteDoc()" value="{{Submit}}" type="submit">Delete this Document</button>
+            </div>
+        </div>
+
+        <!--Delete Video-->
+        <div *ngIf="screen_to_show===14">
+            <div class="box1">
+                <p class="uppercase">Choose a video to delete</p>
+                <br>
+                <form>
+                    Category
+                    <span class="subject-area">
+                        <select id="modify-subject" class="viewVidCat-dropdown" ng-model="Subjects" (change)="updateSubject()">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj"> {{subj}}</option>
+                        </select>
+                    </span>
+                    <br>
+                    <div class="title" *ngIf="results.length !== 0">
+                        Select Video you want to Delete
+                        <select id="title" class="title-delete" (change)="updateID()">
+                            <option *ngFor="let result of results" value={{result._id.$oid}}> {{result.title}}</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button class="modifyvidbutton" type="submit" form="nameform" value="Submit">Delete this video</button>
+                </form>
+            </div>
+        </div>
+    </div>
+

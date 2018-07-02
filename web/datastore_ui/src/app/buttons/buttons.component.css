@@ -1,0 +1,176 @@
+.selectmaterial {
+    width: 700px;
+    font-size: 24px;
+    border: hidden;
+    padding: 25px;
+    margin: 25px;
+    height: 20px
+}
+
+.function {
+    margin: 12px
+}
+
+.Material-Dropdown {
+    position: relative;
+    background-color:lightgrey;
+    font-size: 17px;
+    width: 30%;
+    border: 1px;
+    margin-left: 75px;
+    padding: 15px 15px
+}
+
+.addbook-name {
+    padding: 12px 1% 12px 1%
+}
+/*
+.View-Dropdown {
+    position: relative;
+    background-color: light grey;
+    font-size: 17px;
+    width: 22.5%;
+    border: 1px;
+    margin-left: 13px;
+    padding: 20px 20px;
+    padding-left: 50px
+}
+.Modify-Dropdown {
+    position: relative;
+    background-color: light grey;
+    font-size: 17px;
+    width: 23%;
+    border: 1px;
+    margin-left: 13px;
+    padding: 20px 20px;
+    padding-left: 50px
+}
+.Delete-Dropdown {
+    position: relative;
+    background-color: light grey;
+    font-size: 17px;
+    width: 22.5%;
+    border: 1px;
+    margin-left: 13px;
+    padding: 20px 20px;
+    padding-left: 50px
+}
+    */
+addVid-dropdown {
+    width: 25%;
+    height: 25px
+}
+
+addBook-dropdown {
+    width: 25%;
+    height: 25px
+}
+.box1 {
+    position: absolute;
+    right: 650px;
+    line-height: 1.5;
+    border: 3px solid lightgrey;
+    background-color: lightgrey;
+     padding: 20px;
+     margin:0px;
+    font-size: 150%
+}
+
+p.uppercase {
+    text-transform: uppercase
+
+}
+
+.addbookbutton {
+    background-color: rgb(83, 121, 216);
+    padding: 10px;
+    float: right
+}
+.addvidbutton {
+    background-color: rgb(83, 121, 216);
+    padding: 10px;
+    float: right
+}
+.viewbookbutton {
+    background-color: rgb(62, 190, 62);
+    padding: 10px;
+    float: right
+}
+.viewvidbutton {
+    background-color: rgb(62, 190, 62);
+    padding: 10px;
+    float: right
+}
+.modifybookbutton {
+    background-color: rgb(196, 205, 254);
+    padding: 10px;
+    float: right
+}
+.modifyvidbutton {
+    background-color: rgb(196, 205, 254);
+    padding: 10px;
+    float: right
+}
+.tablink {
+    background-color: #555;
+    color: white;
+    border: 1px;
+    margin-left: 13px;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 20px;
+    font-size: 17px;
+    width: 22%
+}
+
+.tablink:hover {
+    background-color: #777
+}
+
+.subject-area {
+    padding: 12px 1% 12px 1%
+}
+
+.Add {
+    background-color: rgb(83, 121, 216)
+}
+
+.View {
+    background-color: rgb(62, 190, 62)
+}
+
+.Modify {
+    background-color: rgb(196, 205, 254)
+}
+
+.Delete {
+    background-color: orange
+}
+
+.selected {
+    float: left;
+    height: 24px;
+    width: 20%;
+    padding: 20px 20px;
+    background-repeat: repeat-x;
+    color: lightgrey;
+    border: 1px solid black;
+    cursor: pointer
+}
+
+.content11 {
+    line-height: 1.5;
+    width: 35vw;
+  
+    margin-left: 7vw;
+    margin-right: 7vw;
+    margin-top: 2vh;
+    overflow-y: auto;
+    height: 22vh;
+    float: left;
+    background-color: lightgrey;
+    padding-top: 100px;
+    border-radius: 10px;
+    position: absolute
+
+}

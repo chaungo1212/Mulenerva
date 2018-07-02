@@ -1,0 +1,47 @@
+<!-- This file was created by Patrick Shane McClintock in March 2018 for the Mulenerva Project. -->
+
+<div class="form-group">
+  <span class="subject-area">
+    <select id="subject-dropdown" class="subject-dropdown" ng-model="Subjects" (change)="updateSubject()">
+      <option value="">Select Subject</option>
+      <option *ngFor="let subj of Subjects" ng-model="Subjects" [value]="subj">{{subj}}</option>
+    </select>
+  </span>
+  <span class="search-area">
+    <input class="searchbar" id="searchbar" type="text" name="searchbar" placeholder="{{placeholder}}" value="{{query}}" (change)="updateQuery()">
+  </span>
+
+  <!-- LOGIC DROPDOWN TAKEN DOWN UNTIL FURTHER NOTICE
+  <span class="logic-area">
+    <select class="logic-dropdown">
+      <option value="N/A">N/A</option>
+      <option value="Or">Or</option>
+      <option value="And">And</option>
+      <option value="Not">Not</option>
+    </select>
+  </span>
+  -->
+</div>
+
+<div class="filter-bar" align="center">
+  <span class="button" (click)="updateFilter(0)" [class.selected]="document_selected">
+    <span *ngIf="filter[0]">Hide </span>
+    <span *ngIf="!filter[0]">Show </span>
+    Documents
+  </span>
+  <span class="button" (click)="updateFilter(1)" [class.selected]="video_selected">
+    <span *ngIf="filter[1]">Hide </span>
+    <span *ngIf="!filter[1]">Show </span>
+    Videos
+  </span>
+  <span class="button" (click)="updateFilter(2)" [class.selected]="requested_selected">
+    <span *ngIf="filter[2]">Hide </span>
+    <span *ngIf="!filter[2]">Show </span>
+    Requested Content
+  </span>
+  <span class="button" (click)="updateFilter(3)" [class.selected]="available_selected">
+    <span *ngIf="filter[3]">Hide </span>
+    <span *ngIf="!filter[3]">Show </span>
+    Available Content
+  </span>
+</div>

@@ -1,0 +1,8 @@
+# omit the Pipfile.lock
+**/Pipfile.lock
+
+# also do not include compiled python
+**/*.pyc
+
+# swap files - no!
+**/*.swp
